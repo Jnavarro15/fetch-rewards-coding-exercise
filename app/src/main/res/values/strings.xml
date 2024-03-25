@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FetchRewards</string>
+    <string name="list_id">List ID:</string>
+    <string name="id">ID:</string>
+    <string name="document_logo">document-logo</string>
+    <string name="name">Name:</string>
 </resources>

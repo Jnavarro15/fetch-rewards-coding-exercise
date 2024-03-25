@@ -24,8 +24,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
 
             Intent intent = getIntent();
-            int id = intent.getIntExtra("ID", 0);
-            int listId = intent.getIntExtra("ListID", 0);
+            String id = intent.getStringExtra("ID");
+            String listId = intent.getStringExtra("ListID");
             String name = intent.getStringExtra("Name");
 
             itemIdTextView.setText("Item ID: " + id);
