@@ -5,8 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -53,22 +51,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                 Request.Method.GET,
                 url,
                 null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            parseData(response);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    try {
+                        parseData(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
-                        Log.e("Volley Error", error.toString());
-                    }
+                error -> {
+                    Toast.makeText(MainActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                    Log.e("Volley Error", error.toString());
                 }
         );
 
