@@ -18,6 +18,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                     groupedItems.put(listId, new ArrayList<>());
                 }
 
-                groupedItems.get(listId).add(item);
+                Objects.requireNonNull(groupedItems.get(listId)).add(item);
             }
         }
 
